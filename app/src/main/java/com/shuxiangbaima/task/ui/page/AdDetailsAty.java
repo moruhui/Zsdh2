@@ -37,7 +37,6 @@ public class AdDetailsAty extends BaseActivity {
                 progressBar.setProgress(newProgress);
                 if (newProgress == 100) {
                     progressBar.setVisibility(View.GONE);
-                    //fdfdfdfdfdfdffd
                 }
             }
 
