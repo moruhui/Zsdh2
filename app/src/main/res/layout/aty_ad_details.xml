@@ -13,9 +13,9 @@
             android:id="@+id/ad_imgv_back"
             android:layout_width="50px"
             android:layout_height="50px"
-            android:scaleType="fitXY"
             android:layout_centerVertical="true"
             android:layout_marginLeft="30px"
+            android:scaleType="fitXY"
             android:src="@drawable/ic_menu_back" />
 
         <ProgressBar
@@ -49,5 +49,4 @@
             android:layout_gravity="center"
             android:gravity="center" />
     </RelativeLayout>
-
 </LinearLayout>

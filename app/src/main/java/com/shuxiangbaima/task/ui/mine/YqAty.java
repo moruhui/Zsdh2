@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -25,6 +26,7 @@ import com.tencent.mm.sdk.openapi.WXAPIFactory;
 import com.toocms.dink5.mylibrary.base.BasAty;
 import com.toocms.dink5.mylibrary.commonutils.utils.JSONUtils;
 import com.toocms.dink5.mylibrary.commonwidget.LoadingTip;
+import com.zhy.autolayout.utils.AutoUtils;
 
 import org.xutils.http.RequestParams;
 import org.xutils.image.ImageOptions;
@@ -52,6 +54,10 @@ public class YqAty extends BaseAty implements LoadingTip.onReloadListener {
     private LoadingTip loadedTip;
     @ViewInject(R.id.linlay)
     private LinearLayout linlay;
+    @ViewInject(R.id.cardview)
+    private CardView cardview;
+    @ViewInject(R.id.yq_fb_share)
+    private CardView yq_fb_share;
 
     private Invitation invitation;
     private IWXAPI api;
@@ -59,7 +65,7 @@ public class YqAty extends BaseAty implements LoadingTip.onReloadListener {
     private String invlink;
     private String invtext;
 
-//    private ImageOptions imageOptions;
+    //    private ImageOptions imageOptions;
     private static final int THUMB_SIZE = 150;
 
     @Override
@@ -198,7 +204,8 @@ public class YqAty extends BaseAty implements LoadingTip.onReloadListener {
         super.onCreate(savedInstanceState);
         regToWx();
         loadedTip.setOnReloadListener(this);
-
+        cardview.setRadius(AutoUtils.getPercentHeightSize(35));
+        yq_fb_share.setRadius(AutoUtils.getPercentHeightSize(20));
     }
 
     @Override

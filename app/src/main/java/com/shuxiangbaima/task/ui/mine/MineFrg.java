@@ -29,6 +29,7 @@ import com.shuxiangbaima.task.view.GlideCircleTransform;
 import com.toocms.dink5.mylibrary.app.Config;
 import com.toocms.dink5.mylibrary.base.BaseFragment;
 import com.toocms.dink5.mylibrary.baserx.RxBus;
+import com.toocms.dink5.mylibrary.commonutils.ImageUtils;
 import com.toocms.dink5.mylibrary.commonutils.StatusBarUtil2;
 import com.toocms.dink5.mylibrary.commonutils.utils.JSONUtils;
 import com.toocms.dink5.mylibrary.commonwidget.LoadingTip;
@@ -169,19 +170,8 @@ public class MineFrg extends BaseFragment implements LoadingTip.onReloadListener
             Map<String, String> map1 = JSONUtils.parseDataToMap(var2);
             tv_nickname.setText("昵称：" + map1.get("nickname"));
             saveUserNews(var2);
-            SimpleTarget target = new SimpleTarget<Bitmap>(100, 100) {
-                @Override
-                public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
-                    imgv_head.setImageBitmap(resource);
-                }
-            };
             if (!TextUtils.isEmpty(map1.get("avatar"))) {
-                Glide.with(getActivity())
-                        .load(map1.get("avatar"))
-                        .bitmapTransform(new CropCircleTransformation(getActivity()))
-                        .transform(new GlideCircleTransform(getActivity()))
-                        .into(imgv_head);
-
+                ImageUtils.displayCirecle(getActivity(), map1.get("avatar"), imgv_head, R.drawable.default_head);
             }
         }
     }

@@ -25,6 +25,7 @@ import com.shuxiangbaima.task.interfaces.User;
 import com.shuxiangbaima.task.view.GlideCircleTransform;
 import com.toocms.dink5.mylibrary.app.Config;
 import com.toocms.dink5.mylibrary.base.BasAty;
+import com.toocms.dink5.mylibrary.commonutils.ImageUtils;
 import com.toocms.dink5.mylibrary.commonutils.PreferencesUtils;
 import com.toocms.dink5.mylibrary.commonutils.utils.JSONUtils;
 
@@ -97,13 +98,7 @@ public class SetnewsAty extends BasAty {
             }
         }
         tv_phone.setText(application.getUserInfo().get("username"));
-//        Glide.with(this).load(R.drawable.default_head)
-//                .transform(new GlideCircleTransform(this))
-//                .into(imgv_head);
-        Glide.with(this)
-                .load(application.getUserInfo().get("avatar"))
-                .bitmapTransform(new CropCircleTransformation(this))
-                .into(imgv_head);
+        ImageUtils.displayCirecle(this, application.getUserInfo().get("avatar"), imgv_head, R.drawable.default_head);
 
     }
 
@@ -262,10 +257,7 @@ public class SetnewsAty extends BasAty {
             if (map.get("status").equals("200")) {
                 String avatar = JSONUtils.parseDataToMap(var2).get("avatar");
                 application.setUserInfoItem(avatar, avatar);
-                Glide.with(this)
-                        .load(avatar)
-                        .transform(new GlideCircleTransform(this))
-                        .into(imgv_head);
+                ImageUtils.displayCirecle(this, avatar, imgv_head);
             }
         }
     }

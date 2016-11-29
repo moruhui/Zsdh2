@@ -118,10 +118,7 @@ public class PaiAty extends BaseAty implements LoadingTip.onReloadListener {
         loadedTip.setLoadingTip(LoadingTip.LoadStatus.finish);
         swiprefresh.setRefreshing(false);
         top_relay.setVisibility(View.VISIBLE);
-        Glide.with(this)
-                .load(application.getUserInfo().get("avatar"))
-                .bitmapTransform(new CropCircleTransformation(this))
-                .into(imgv_head);
+        ImageUtils.displayCirecle(this, application.getUserInfo().get("avatar"), imgv_head, R.drawable.default_head);
         Map<String, String> map = JSONUtils.parseKeyAndValueToMap(var2);
         if (var1.getUri().contains("profit_top")) {
             if (map.get("status").equals("200")) {
@@ -215,7 +212,6 @@ public class PaiAty extends BaseAty implements LoadingTip.onReloadListener {
             return new MyAdapter.MyViewHolder(view);
         }
 
-
         @Override
         public void onBindViewHolder(MyAdapter.MyViewHolder viewHolder, final int position) {
             viewHolder.tv_rank.setText(top.get(position).get("rank"));
@@ -229,7 +225,7 @@ public class PaiAty extends BaseAty implements LoadingTip.onReloadListener {
             viewHolder.tv_name.setText(top.get(position).get("nickname"));
             viewHolder.tv_money.setText(top.get(position).get("profit") + "元");
 //            x.image().bind(viewHolder.imgv_head, top.get(position).get("avatar"), imageOptions);
-            ImageUtils.display(PaiAty.this, top.get(position).get("avatar"), viewHolder.imgv_head);
+            ImageUtils.display(PaiAty.this, top.get(position).get("avatar"), viewHolder.imgv_head, R.drawable.default_head);
 
         }
 

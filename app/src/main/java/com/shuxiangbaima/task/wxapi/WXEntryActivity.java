@@ -3,6 +3,7 @@ package com.shuxiangbaima.task.wxapi;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.shuxiangbaima.task.R;
@@ -67,7 +68,7 @@ public class WXEntryActivity extends BasAty implements IWXAPIEventHandler {
     @Override
     public void onResp(BaseResp baseResp) {
         int result = 0;
-//        Log.e("fdfdf", baseResp.errCode + "");
+        Log.e("fdfdf", baseResp.errCode + "");
         switch (baseResp.errCode) {
             case BaseResp.ErrCode.ERR_OK:
                 result = R.string.errcode_success;

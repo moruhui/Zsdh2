@@ -8,6 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.ViewCompat;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.transition.Transition;
 import android.view.View;
@@ -29,6 +30,7 @@ import com.tencent.mm.sdk.openapi.WXAPIFactory;
 import com.toocms.dink5.mylibrary.app.AppConstant;
 import com.toocms.dink5.mylibrary.commonutils.utils.JSONUtils;
 import com.toocms.dink5.mylibrary.commonwidget.LoadingTip;
+import com.zhy.autolayout.utils.AutoUtils;
 
 import org.xutils.http.RequestParams;
 import org.xutils.view.annotation.Event;
@@ -60,6 +62,8 @@ public class SunpaiAty extends BaseAty implements LoadingTip.onReloadListener {
     private RelativeLayout center;
     @ViewInject(R.id.relay)
     private RelativeLayout relay;
+    @ViewInject(R.id.yq_fb_share)
+    private CardView yq_fb_share;
 
     private Invitation invitation;
     private IWXAPI api;
@@ -103,6 +107,7 @@ public class SunpaiAty extends BaseAty implements LoadingTip.onReloadListener {
         }
         loadedTip.setOnReloadListener(this);
         initTransition(relay, AppConstant.TRANSITION_ANIMATION_NEWS_PHOTOS);
+        yq_fb_share.setRadius(AutoUtils.getPercentHeightSize(20));
     }
 
 

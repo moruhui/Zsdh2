@@ -29,7 +29,8 @@
             android:layout_width="80px"
             android:layout_height="80px"
             android:layout_marginLeft="50px"
-            android:scaleType="fitXY" />
+            android:scaleType="fitXY"
+            android:src="@drawable/default_head" />
 
         <TextView
             android:id="@+id/item_pai_tv_name"
